@@ -13,6 +13,7 @@ class CalIntegrationTest < Test::Unit::TestCase
   # 	expected "   February 2014"
   # 	actual = Cal.new(2, 2014).return_month_header
   # 	assert_equal(expected, actual)
+  # end
 
   def test_02_return_daysOf_month_header
   	cal = Cal.new "February", 2013
@@ -46,27 +47,26 @@ class CalIntegrationTest < Test::Unit::TestCase
 
   def test_start_day_of_month
    	cal = Cal.new(5, 2013)
-   	assert_equal 3, cal.start_weekday
+   	assert_equal 4, cal.start_weekday
   end
 
-  # def test_01a_start_day_of_month
-  #  	cal = Cal.new(8, 2004)
-  #  	assert_equal 1, cal.start_day
-  # end
+  def test_01a_start_day_of_month
+   	cal = Cal.new(8, 2004)
+   	assert_equal 1, cal.start_weekday
+  end
 
-  # def test_start_day_of_month_leap_year
-  #  	cal = Cal.new(2, 2002)
-  #  	assert_equal 6, cal.start_day
-  # end
-
-  # def test_start_day_of_month_non_leap_year
-  #  	cal = Cal.new(2, 1813)
-  #  	assert_equal 2, cal.start_day
-  # end
-
-  # def test_print_calendar
-  # 	cal = Cal.new(1, 2010)
-  # 	assert_equal  "1  2", cal.print_calendar
-  # end
+  def test_06_print_one_month
+    cal = Cal.new(9,2012)
+    expected = []
+    expected << " September 2012 "
+    expected << "Su Mo Tu We Th Fr Sa"
+    expected << "                   1"
+    expected << " 2  3  4  5  6  7  8"
+    expected << " 9 10 11 12 13 14 15"
+    expected << "16 17 18 19 20 21 22"
+    expected << "23 24 25 26 27 28 29"
+    expected << "30"
+    assert_equal(expected, cal.print_calendar)
+  end
 
 end
