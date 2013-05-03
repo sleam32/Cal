@@ -1,11 +1,4 @@
 
-  # month = ARGV[0]
-  # year = ARGV[1]
-
-
-  # puts `cal #{month} #{year}`
-
-
 class Cal
 attr_accessor :month 
 attr_accessor :year
@@ -31,7 +24,7 @@ def return_month_header # February 2013
                "December"
              ]
     selected_month = months[month.to_i-1]
-    "#{selected_month} #{year}"
+    "#{selected_month} #{@year}"
 end
 
 def return_daysOf_month_header 
@@ -54,17 +47,31 @@ def not_a_leap_year
 
 def num_days
     days_in_month =[31,28,31,30,31,30,31,31,30,31,30,31]
-    days_in_month[month - 1]
+    days_in_month[@month - 1]
     if month - 1 == 1
     	return 29
     else
-    	days_in_month[month - 1]
+    	days_in_month[@month - 1]
     end
 end
 
 def start_weekday
 	  ((1 + (@month + 1) * 26/10)+ @year + (@year/4) + 6 * (@year/100) + (@year/400)) % 7
   	end
+
+  def leap_century
+    thirty = [4,6,9,11]
+    thirtyone = [1,3,5,7,8,10,12]
+    return 30 if thirty.include? @month
+    return 31 if thirtyone.include? @month
+    if @year % 100 == 0 && @year % 400 == 0
+      29
+    elsif @year % 4 == 0 && @year % 100 != 0
+      29
+    else
+      28
+    end
+  end
 
 def print_calendar
     start = self.start_weekday
@@ -81,7 +88,7 @@ def print_calendar
     end
 
     #print out a month
-    return_month_header[month - 1]
+    return_month_header[@month - 1]
     top_line = "#{return_month_header}".center(16)
     next_line = "Su Mo Tu We Th Fr Sa"
     new_output.unshift(next_line).unshift(top_line)

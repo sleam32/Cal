@@ -3,7 +3,7 @@
 # class CalIntegrationTest < Test::Unit::TestCase
 
 # 	def test_01_is_this_working?
-# 		assert_equal(`cal 2 2012`, `ruby RubyCal.rb 2 2012`)
+# 		assert_equal(`cal 2 2012`, `ruby Rubycal.rb 2 2012`)
 # 	end
 
 # 	def test_02_leap_year_x400

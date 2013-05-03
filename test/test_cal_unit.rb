@@ -55,6 +55,11 @@ class CalIntegrationTest < Test::Unit::TestCase
    	assert_equal 1, cal.start_weekday
   end
 
+  def test_non_leap_century
+    cal = Cal.new(2, 1900)
+    assert_equal(28, cal.leap_century)
+  end
+
   def test_06_print_one_month
     cal = Cal.new(9,2012)
     expected = []
@@ -68,5 +73,4 @@ class CalIntegrationTest < Test::Unit::TestCase
     expected << "30"
     assert_equal(expected, cal.print_calendar)
   end
-
 end
