@@ -81,9 +81,9 @@ def print_calendar
     output = "                   "
     output += (1..9).to_a.join("  ")
     output += " "
-    output += (10..self.num_days).to_a.join(" ")
-    new_output = output.scan(/.{1,21}/)
-    new_output.each do |o|
+    output += (10..self.num_days).to_a.join(" ") # search through the string output and find any single characters
+    new_output = output.scan(/.{1,21}/) # group the findings into groups of 20 characters
+    new_output.each do |o| # take each group of 20 characters and remove the trailing whitespace
       o.rstrip!
     end
 
