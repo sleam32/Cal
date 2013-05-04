@@ -1,9 +1,9 @@
 class Year
 
 
-	def initialize (year) 
+def initialize (year) 
 	@year = year
-end
+	end
 
 def test_header
 	string = "#{@year}".center(64).rstrip + "\n"
@@ -14,9 +14,9 @@ def month_header
 	month_array = []
 	month_header = "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "Novemeber", "December"
 	month_array << month_header
-end
+	end
 
-	def days_header
+def days_header
 		"Su Mo Tu We Th Fr Sa"
 	end
 end
