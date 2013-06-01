@@ -90,37 +90,5 @@ def print_year
   string
 end
 
-def format_3_months
-  first_month = days_array
-  second_month = days_array
-  third_month = days_array
-  until first_month.empty? && second_month.empty? && third_month.empty?
-    week1 = month1.shift(7)
-    week2 = month2.shift(7)
-    week3 = month3.shift(7)
-    string << week1.join(" ") + " "
-    string << week2.join(" ") + " "
-    string << week3.join(" ") + "\n"
-  end
-  string
-end
-
-def print_year
-  string = test_header
-  4.times do
-    string << month_array.center(20) + " "
-    string << month_array.center(20) + " "
-    string << month_array.center(20) + "\n"
-    string << week_row
-    string << format_3_months + "\n"
-  end
-  puts string
-end
-
-def header_week_row
-  string = []
-  string << test_header + week_row + " " + test_header + week_row + " " + test_header + week_row
-  string
-end
 end
 
